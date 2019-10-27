@@ -15,15 +15,6 @@ import 'react-dates/lib/css/_datepicker.css'
 
 const store = configureStore();//把configureStore return的東西 存到store
 
-const state = store.getState();
-
-const visibleExpenses = getVisibleExpenses(state.expenses,state.filters);
-
-console.log(state);
-
-// console.log(visibleExpenses);
-
-
 const jsx = (
     <Provider store = {store}>
         <AppRouter />
