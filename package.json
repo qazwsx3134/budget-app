@@ -9,7 +9,9 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "test": "jest --config=jest.config.json --watchAll"
+    "test": "jest --config=jest.config.json --watchAll",
+    "start": "node server/server.js",
+    "heroku-postbild" : "npm run build:prod"
   },
   "dependencies": {
     "@babel/cli": "^7.6.4",
@@ -20,11 +22,8 @@
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
-    "jest": "^24.9.0",
-    "live-server": "^1.2.0",
+    "express": "^4.17.1",
     "mini-css-extract-plugin": "^0.8.0",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
@@ -46,5 +45,11 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "live-server": "^1.2.1"
   }
 }
