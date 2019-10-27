@@ -15,11 +15,6 @@ import 'react-dates/lib/css/_datepicker.css'
 
 const store = configureStore();//把configureStore return的東西 存到store
 
-store.dispatch(addExpense({description: 'water bill', amount: 31321, createdAt:2}));
-store.dispatch(addExpense({description: 'gas bill', amount: 6545641, createdAt:20}));
-store.dispatch(addExpense({description: 'rent', amount: 321, createdAt:400}));
-store.dispatch(setTextFilter(''))
-
 const state = store.getState();
 
 const visibleExpenses = getVisibleExpenses(state.expenses,state.filters);
