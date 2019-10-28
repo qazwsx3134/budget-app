@@ -11,7 +11,7 @@
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json --watchAll",
     "start": "node server/server.js",
-    "heroku-postbild": "npm run build:prod"
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@babel/cli": "^7.6.4",
