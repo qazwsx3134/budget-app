@@ -1,19 +1,31 @@
 import React from 'react';
 import ExpenseForm from "./ExpenseForm";
 import { connect } from "react-redux";
-import { addExpense } from "../actions/expenses";
+import { startAddExpense } from "../actions/expenses";
+
+export class AddExpensePage extends React.Component {
+  onSubmit = (expense)=>{ //把這個fuction 作為props傳下去
+
+    this.props.startAddExpense(expense)//expense是ExpenseForm 傳上來的object
+    this.props.history.push('/')//導向到path dashboard
+  };
+  render(){
+    return (
+        <div>
+          <h1>Add Expense</h1>
+          <ExpenseForm 
+            onSubmit={this.onSubmit}
+          />
+        </div>
+    )
+  }
+}
 
 
-const AddExpensePage = (props) => ( //必須把props丟進來 因為connect把dispatch 整合到props裡
-  <div>
-    <h1>Add Expense</h1>
-    <ExpenseForm 
-      onSubmit={(expense)=>{ //把這個fuction 作為props傳下去
-        props.dispatch(addExpense(expense))//expense是ExpenseForm 傳上來的object
-        props.history.push('/')//導向到path dashboard
-      }}
-    />
-  </div>
-);
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    startAddExpense: (expense) => dispatch(startAddExpense(expense))
+  }
+};
 
-export default connect()(AddExpensePage)
+export default connect(undefined, mapDispatchToProps)(AddExpensePage)

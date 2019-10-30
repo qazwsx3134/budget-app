@@ -27,6 +27,9 @@ export default (state = expensesReducerDefaultState, action) =>{
                     return expense
                 };
             });
+        
+        case 'FETCH_EXPENSES': //從DB抓DATA之後 return 資料回去
+            return action.expenses;
         default:
             return state ;
     }
