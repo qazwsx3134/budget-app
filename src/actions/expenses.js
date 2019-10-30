@@ -14,7 +14,8 @@ export const addExpense = (expense)=>({
 });
 
 export const startAddExpense = (expenseData = {})=>{ //要設定redux thunk才能用這個
-    return (dispatch) => { // get access to dispatch 所以是 ADD之後先執行這串 然後再dispatch action addExpense
+    return (dispatch, getState) => { // get access to dispatch 所以是 ADD之後先執行這串 然後再dispatch action addExpense
+        const uid = getState().auth.uid;
         const {
             description = '',
             note= '',
@@ -23,7 +24,7 @@ export const startAddExpense = (expenseData = {})=>{ //要設定redux thunk才�
         } = expenseData; //解構expenseData 前面是default value
         const expense = { description , note, amount, createdAt};
 
-        database.ref('expenses').push(expense).then((ref)=>{
+        database.ref(`users/${uid}/expenses`).push(expense).then((ref)=>{
             dispatch(addExpense({
                 id: ref.key,
                 ...expense
@@ -42,9 +43,10 @@ export const removeExpense = ( //argu只需要提供ID 故
     id
 });
 
-export const startRemoveExpense = ({ id}= { })=>{  
-    return (dispatch)=>{
-        return database.ref(`expenses/${id}`).remove().then(()=>{
+export const startRemoveExpense = ({ id }= { })=>{  
+    return (dispatch, getState)=>{
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/expenses/${id}`).remove().then(()=>{
             dispatch(removeExpense({id}));
         })
     }
@@ -58,8 +60,9 @@ export const editExpense = (id, updates)=>({
 })
 
 export const startEditExpense = (id, updates) => {
-    return (dispatch) => {
-        return database.ref(`expenses/${id}`).update(updates).then(()=>{
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        return database.ref(`users/${uid}/expenses/${id}`).update(updates).then(()=>{
             dispatch(editExpense(id,updates))
         })
     }
@@ -72,8 +75,9 @@ export const fetchExpenses = (expenses)=>({
 });
 
 export const startFetchExpenses= ()=>{
-    return (dispatch) => {
-        return database.ref('expenses') //要確認return promise
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/expenses`) //要確認return promise
         .once('value')
         .then((snapshot)=>{ //把snapshot 是抓到的expenses
             const expenses = [];
