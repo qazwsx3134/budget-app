@@ -1,10 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  color: $dark-grey;
+  font-family: 'Segoe UI','SegoeUI','Microsoft JhengHei','微軟正黑體',"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: $m-size;
+  line-height: 1.6;
 }
 
 button {

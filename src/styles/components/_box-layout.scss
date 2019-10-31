@@ -1,0 +1,24 @@
+.box-layout {
+    background: url('/images/bg.jpg');
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+//justify-content: 左右 align-items:上下
+
+//border-radius: 3px; 框框有圓角
+.box-layout__box {
+    background: fade-out($color: white, $amount: 0.15);
+    border-radius: 3px;
+    padding: $l-size $m-size; 
+    text-align: center;
+    width: 25rem;
+}
+
+.box-layout__titile {
+    margin: 0 0 $m-size 0;
+    line-height: 1;
+}
