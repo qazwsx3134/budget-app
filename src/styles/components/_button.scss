@@ -1,23 +1,97 @@
 .button {
     background: $blue;
     border: none;
-    color: white;
+    color: $white;
     display: inline-block;
     padding: $s-size;
     font-weight: 300;
-    line-height: 1;
     font-size: $font-size-large;
     text-decoration: none;
 }
 
 .button-link {
     background: none;
-    color: white;
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    -webkit-background-clip: text;
+    color: transparent;
     border: none;
-    font-size: 2.0rem;
+    font-size: 20px;
+    line-height: 1.8;
+    display: inline-block;
+    width: 120px;
 }
+
+.button-link__sub {
+    background: none;
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    border: none;
+    font-size: 30px;
+    line-height: 1.8;
+    display: inline-block;
+    width: 120px;
+    height: 36px;
+    margin: 0 10px 20px 0;
+    
+}
+
+.button-link__sub__router {
+    color: $dark-grey;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 1.8;
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.button-link__qanda__router {
+    text-decoration: none;
+}
+
 
 .button-remove {
     @extend .button;
     background: #888888;
+}
+
+.button-UI-button {
+    border: none;
+    color: $white;
+    display: inline-block;
+    text-align: center;
+    width: 88px;
+    padding: 0;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 6px 16px;
+}
+
+.button-UI-button__small {
+    border: none;
+    color: $light-grey;
+    height: 24px;
+    width: 88px;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.button-no-deco {
+    text-decoration: none;
+}
+
+.button-span {
+    margin-left: 10px;
+
+}
+.button-span__container {
+    margin-right: 30px;
+    margin-bottom: 40px;
+}
+
+.button-span__marginbottom {
+    margin-bottom: 8px;
 }

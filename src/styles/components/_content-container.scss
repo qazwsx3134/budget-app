@@ -1,5 +1,40 @@
 .content-container {
     margin: 0 auto;
+    max-width: 1120px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.content-container_header {
+    width: 1120px;
+    max-height: 280px;
+    max-width: 1120px;
+         
+}
+
+.content-container__CityButton {
+    margin: 0 auto;
     padding: 0 $m-size;
-    max-width: 80rem;
+    max-width: 1120px;
+    
+}
+
+.content-container__headerPage {
+    @extend .content-container;
+    height: 200px;
+    
+}
+
+.content-container__color {
+    @extend .content-container;
+    height: 500px;
+    border-radius: 10px;
+    background: darken($color: $light-grey, $amount: 2%);
+    margin-top: 10px;
+}
+
+.container__color {
+    background: #FAFAFA;
 }

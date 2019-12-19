@@ -1,16 +1,18 @@
 .header {
-    background: $dark-blue;
+    background: $white;
 }
 
 .header__content {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    padding: $s-size 0;
+    padding: 6px 0;
 }
 
 .header__title {
-    color: white;
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    -webkit-background-clip: text;
+    color: transparent;
     text-decoration: none;
     h1 {
         margin: 0;

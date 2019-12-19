@@ -1,15 +1,36 @@
-import moment from "moment";
 
 //Filters reducer
 const filtersReducerDefaultState = {
+    city: '',
+    title:'',
     text: '',
-    sortBy: 'date', //date or amount
-    startDate: moment().startOf('month'),
-    endDate: moment().endOf('month')
+    sortBy: 'like', //date or amount or like
+    topic:'',
+    label:'',
 }
 
 export default (state = filtersReducerDefaultState, action) =>{
     switch (action.type) {
+        case 'SET_TITLE_FILTER':
+            return{
+                ...state,
+                title : action.title
+            };
+        case 'SET_TOPIC_FILTER':
+            return{
+                ...state,
+                topic : action.topic
+            };
+        case 'SET_LABEL_FILTER':
+            return{
+                ...state,
+                label : action.label
+            };
+        case 'SET_CITY_FILTER':
+            return{
+                ...state,
+                city : action.city
+            };
         case 'SET_TEXT_FILTER':
             return{
                 ...state,
@@ -25,15 +46,10 @@ export default (state = filtersReducerDefaultState, action) =>{
                 ...state,
                 sortBy : 'amount',
             }
-        case 'SET_START_DATE':
+        case 'SORT_BY_LIKE':
             return{
                 ...state,
-                startDate : action.startDate,
-            }
-        case 'SET_END_DATE':
-            return{
-                ...state,
-                endDate : action.endDate,
+                sortBy : 'like',
             }
         default:
             return state ;

@@ -1,11 +1,26 @@
 .input-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: $m-size;
+    margin-bottom: $s-size;
+    padding-left: 5px;
 
     @media (min-width: $desktop-breakpoint) {
         flex-direction: row;
-        margin-bottom: $l-size;
+        margin-bottom: $m-size;
+    }
+}
+
+.input-group_qanda {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: $s-size;
+    padding-left: 5px;
+
+
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+        margin-bottom: $m-size;
     }
 }
 

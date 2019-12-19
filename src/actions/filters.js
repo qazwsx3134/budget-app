@@ -1,3 +1,29 @@
+//SET_TITLE_FILTER
+
+export const setTitleFilter = (title='')=>({
+    type: 'SET_TITLE_FILTER',
+    title,
+})
+
+//SET_TOPIC_FILTER
+
+export const setTopicFilter = (topic='')=>({
+    type: 'SET_TOPIC_FILTER',
+    topic,
+})
+
+//SET_LABEL_FILTER
+
+export const setLabelFilter = (label='')=>({
+    type: 'SET_LABEL_FILTER',
+    label,
+})
+//SET_CITY_FILTER
+
+export const setCityFilter = (city='')=>({
+    type: 'SET_CITY_FILTER',
+    city,
+})
 
 //SET_TEXT_FILTER
 
@@ -15,15 +41,8 @@ export const sortByDate = ()=>({
 export const sortByAmount = ()=>({
     type:'SORT_BY_AMOUNT',
 })
-//SET_START_DATE
-export const setStartDate = (startDate)=>({
-    type:'SET_START_DATE',
-    startDate,
-})
 
-//SET_END_DATE
-export const setEndDate = (endDate)=>({
-    type:'SET_END_DATE',
-    endDate,
-})
 
+export const sortByLike =()=>({
+    type:'SORT_BY_LIKE',
+})

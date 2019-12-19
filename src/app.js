@@ -3,53 +3,76 @@ import ReactDOM from 'react-dom';
 import { Provider  } from "react-redux";
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from "./store/configureStore";
-import { startFetchExpenses } from "./actions/expenses";
 import {login, logout} from "./actions/auth";
-import expensesReducer from "./reducers/expenses";
 import filtersReducer from "./reducers/filters";
-import getVisibleExpenses from "./selectors/expenses";
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
-import {firebase} from './firebase/firebase';
+
+
 import LoadingPage from './components/LoadingPage'
+import { fetchViewpoints } from "./actions/viewpoint";
+import { fetchQanda } from "./actions/qanda";
+import { fetchFood } from "./actions/food";
+import { fetchEvent } from "./actions/event";
+import { viewpoint,qanda,food,event } from "./store/store";
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'; 
+
+
+
+export const theme = createMuiTheme({
+    palette: {
+      primary: {
+        light: '#fd9ea3',
+        main: '#fd868c',
+        dark: '#b15d62',
+        contrastText: '#fff',
+      },
+      secondary: {
+        light: '#f381a7',
+        main: '#f06292',
+        dark: '#a84466',
+        contrastText: '#fff',
+      },  
+    },typography: {
+      fontFamily: [
+        'Segoe UI',
+        'SegoeUI',
+        'Microsoft JhengHei',
+        '微軟正黑體',
+        "Helvetica Neue",
+        'Helvetica',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+    },
+  });
+
 
 const store = configureStore();//把configureStore return的東西 存到store
+// store.dispatch(fetchViewpoints(viewpoint))
+// store.dispatch(fetchQanda(qanda))
+// store.dispatch(fetchFood(food))
+// store.dispatch(fetchEvent(event))
 
 const jsx = (
-    <Provider store = {store}>
-        <AppRouter />
-    </Provider>
+    
+        <Provider store = {store}>
+            <MuiThemeProvider theme = { theme }>
+                <AppRouter />
+            </MuiThemeProvider>
+        </Provider>
+   
+    
 );
 
-let hasRendered = false;
-
-const renderApp=()=>{
-    if(!hasRendered){
-        ReactDOM.render(jsx , document.getElementById('app'));
-        hasRendered = true;
-    }
-};
 
 ReactDOM.render(<LoadingPage /> , document.getElementById('app'));
 
-firebase.auth().onAuthStateChanged((user)=>{
-    
-    if (user) {
-        store.dispatch(login(user.uid))
-        store.dispatch(startFetchExpenses()).then(()=>{ //抓完資料 再render一次
-            renderApp();
-            if(history.location.pathname === '/'){
-                history.push('/dashboard')
-            }
-        })
+ReactDOM.render(jsx, document.getElementById('app')
+ );
+
         
-        
-    }else{
-        store.dispatch(logout())
-        renderApp();
-        history.push('/');
-        
-    }
-});

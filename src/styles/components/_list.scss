@@ -1,10 +1,9 @@
 .list-header {
-    background: $light-grey;
     border: 1px solid darken($color: $light-grey, $amount: 7%);
-    color: $grey;
+    color: $dark-grey;
     display: flex;
     justify-content: space-between;
-    padding: $s-size $m-size;
+    padding: 0;
 }
 
 .list-body {
@@ -17,21 +16,19 @@
 
 .list-item {
     border: 1px solid darken($color: $light-grey, $amount: 7%);
-    border-top: none;
     color: $dark-grey;
     display: flex;
     flex-direction: column;
-    padding: $s-size;
+    padding: 10px;
     text-decoration: none;
     transition: background .3s ease;
     &:hover {
         background: $light-grey;
     }
     @media (min-width : $desktop-breakpoint) {
-        align-items: center;
         flex-direction: row;
         justify-content: space-between;
-        padding: $m-size;
+        padding: 16px;
     }
 }
 
@@ -46,8 +43,8 @@
 }
 
 .list-item__title{
+    color: $dark-grey;
     margin: 0;
-    word-break: break-all;
 }
 
 .list-item__subtitle{
@@ -63,3 +60,128 @@
         padding-left: $s-size;
     }
 }
+
+
+.list-item__avatar{
+    align-items: flex-start;
+}
+
+.list-item__border {
+    
+    border-radius: 8px;
+    color: $dark-grey;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    padding-left: 60px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background .3s ease;
+    &:hover {
+        background: $light-grey;
+    }
+    @media (min-width : $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 16px;
+        padding-left: 60px;
+    }
+  }
+
+  .list-item__border__small {
+    
+    border-radius: 8px;
+    color: $dark-grey;
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+    padding-left: 80px;
+    margin-bottom: 3px;
+    text-decoration: none;
+    transition: background .3s ease;
+    &:hover {
+        background: $light-grey;
+    }
+    @media (min-width : $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 3px;
+        padding-left: 80px;
+    }
+  }
+
+
+
+  
+.list-item__event {
+    color: $dark-grey;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    text-decoration: none;
+    transition: background .3s ease;
+    &:hover {
+        background: $light-grey;
+    }
+    @media (min-width : $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.list-item__border__event {
+    border: 1px solid darken($color: $light-grey, $amount: 7%);
+    border-radius: 8px;
+    color: $dark-grey;
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+    margin-bottom: 3px;
+    text-decoration: none;
+    transition: background .3s ease;
+    &:hover {
+        background: $light-grey;
+    }
+    @media (min-width : $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 3px;
+    }
+  }
+  .list-item__border__label {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    color: $dark-grey;
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+    margin-bottom: 3px;
+    text-decoration: none;
+    transition: background .3s ease;
+    &:hover {
+        background: $light-grey;
+    }
+    @media (min-width : $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 3px;
+    }
+  }
+
+  .list-item__border__qanda {
+    color: $dark-grey;
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+    margin-bottom: 3px;
+    text-decoration: none;
+    transition: background .3s ease;
+    &:hover {
+        background: $light-grey;
+    }
+    @media (min-width : $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 3px;
+    }
+  }

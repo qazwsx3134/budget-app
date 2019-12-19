@@ -1,13 +1,20 @@
 .page-header {
     background: $light-grey;
-    margin-bottom: $l-size;
-    padding: $l-size 0;
-
+    background-image: url("/images/headerpage.png");
+    padding: $s-size $s-size;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 280px;
+    width: 100%;
+    background-position: center center;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    display: flex; 
+    justify-content: space-evenly;
+    align-items: flex-end;
 }
 
-.page-header__actions {
-    margin-top: $m-size;
-}
+
 
 .page-header__title {
     font-weight: 300;

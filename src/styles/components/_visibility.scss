@@ -9,3 +9,56 @@
         display: none;
     }
 }
+
+.responsive-image-div {
+    
+    object-fit: contain;
+    overflow:hidden;
+    max-height: 470px;
+}
+
+.responsive-image {
+    padding: 0;
+    border-radius: 7px;
+    width: 100%;
+}
+
+.resize-image {
+    padding: 5px;
+    border-radius: 10px;
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:154px;
+
+}
+.resize-image-small {
+    padding: 5px;
+    border-radius: 10px;
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:90px;
+
+}
+
+.event-image {
+    border-radius: 3px;
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:400px;
+}
+.responsive-event-image {
+    padding: 2px 0;
+    border-radius: 7px;
+    max-width:100%;
+    object-fit: contain;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin-top: 185px;
+  }

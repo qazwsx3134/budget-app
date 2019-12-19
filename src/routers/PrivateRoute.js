@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import Header from '../components/Header';
+import LoadingPage from '../components/LoadingPage'
 
 export const PrivateRoute = ({ 
     isAuthenticated, 
@@ -15,13 +16,13 @@ export const PrivateRoute = ({
                 <Component {...props}/>
             </div>
         ): (
-            <Redirect to="/" /> 
+            <LoadingPage/>
         )
     )}/>
 );
 
 const mapStateToProps = (state)=> ({
-    isAuthenticated: !!state.auth.uid
+    isAuthenticated: state.auth.isAdmin 
 });
 
 export default connect(mapStateToProps)(PrivateRoute)
